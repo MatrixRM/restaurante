@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabores do Peru - Culinária Autêntica em Videira, SC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --vermelho-peru: #CC0000;
+            --amarelo-peru: #FFCC00;
+            --azul-peru: #046A94;
+            --branco: #FFFFFF;
+            --preto: #333333;
+            --cinza-claro: #F5F5F5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--preto);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header e Navegação */
+        header {
+            background-color: var(--branco);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--vermelho-peru);
+        }
+        
+        .logo span {
+            color: var(--amarelo-peru);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--preto);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--vermelho-peru);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1516100882582-96c3a05fe590?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--branco);
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--vermelho-peru);
+            color: var(--branco);
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid var(--vermelho-peru);
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--branco);
+            border-color: var(--branco);
+        }
+        
+        /* Seções Gerais */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--vermelho-peru);
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 3px;
+            background-color: var(--amarelo-peru);
+            margin: 15px auto 0;
+        }
+        
+        /* Nossa História */
+        .historia {
+            background-color: var(--branco);
+        }
+        
+        .historia-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .historia-texto {
+            flex: 1;
+        }
+        
+        .historia-imagem {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .historia-imagem img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .historia-imagem:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Cardápio */
+        .cardapio {
+            background-color: var(--cinza-claro);
+        }
+        
+        .categorias {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .categoria-btn {
+            background: none;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--preto);
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .categoria-btn.active, .categoria-btn:hover {
+            color: var(--vermelho-peru);
+        }
+        
+        .categoria-btn.active:after, .categoria-btn:hover:after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: var(--vermelho-peru);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        
+        .pratos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .prato-card {
+            background-color: var(--branco);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .prato-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .prato-imagem {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .prato-imagem img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .prato-card:hover .prato-imagem img {
+            transform: scale(1.1);
+        }
+        
+        .prato-info {
+            padding: 20px;
+        }
+        
+        .prato-info h3 {
+            color: var(--vermelho-peru);
+            margin-bottom: 10px;
+        }
+        
+        .prato-info p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        .prato-preco {
+            font-weight: 600;
+            color: var(--azul-peru);
+        }
+        
+        .cardapio-cta {
+            text-align: center;
+        }
+        
+        /* Ambiente */
+        .ambiente {
+            background-color: var(--branco);
+        }
+        
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .galeria-item {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 250px;
+            position: relative;
+        }
+        
+        .galeria-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .galeria-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .galeria-item:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .galeria-item:hover:after {
+            opacity: 1;
+        }
+        
+        .ambiente-descricao {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        /* Depoimentos */
+        .depoimentos {
+            background-color: var(--cinza-claro);
+        }
+        
+        .depoimentos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .depoimento-card {
+            background-color: var(--branco);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .depoimento-card:before {
+            content: '\201C';
+            font-family: 'Playfair Display', serif;
+            font-size: 60px;
+            color: var(--amarelo-peru);
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            line-height: 1;
+        }
+        
+        .depoimento-texto {
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .depoimento-cliente {
+            display: flex;
+            align-items: center;
+        }
+        
+        .depoimento-cliente img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        
+        .cliente-info h4 {
+            margin-bottom: 5px;
+            color: var(--vermelho-peru);
+        }
+        
+        /* Localização e Contato */
+        .localizacao {
+            background-color: var(--branco);
+        }
+        
+        .contato-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+        
+        .contato-info h3 {
+            color: var(--vermelho-peru);
+            margin-bottom: 20px;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .info-item i {
+            width: 40px;
+            height: 40px;
+            background-color: var(--amarelo-peru);
+            color: var(--branco);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+        
+        .mapa {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 400px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mapa iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Mídias Sociais */
+        .midias-sociais {
+            background-color: var(--cinza-claro);
+            text-align: center;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: var(--vermelho-peru);
+            color: var(--branco);
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--amarelo-peru);
+            transform: translateY(-5px);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--preto);
+            color: var(--branco);
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--branco);
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo span {
+            color: var(--amarelo-peru);
+        }
+        
+        .footer-links h4 {
+            color: var(--branco);
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .footer-links h4:after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: var(--amarelo-peru);
+            margin-top: 10px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links ul li a:hover {
+            color: var(--amarelo-peru);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #ccc;
+            font-size: 14px;
+        }
+        
+        /* Botão do WhatsApp Flutuante */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+        
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .historia-content {
+                flex-direction: column;
+            }
+            
+            .historia-imagem {
+                order: -1;
+            }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 30px;
+                right: 30px;
+                font-size: 24px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .hero {
+                height: auto;
+                min-height: 100vh;
+                padding: 120px 0 60px;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .whatsapp-float {
+                width: 45px;
+                height: 45px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Botão do WhatsApp Flutuante -->
+    <a href="https://wa.me/554984088835" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header e Navegação -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">Sabores <span>do Peru</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#historia">Nossa História</a></li>
+                    <li><a href="#cardapio">Cardápio</a></li>
+                    <li><a href="#ambiente">Ambiente</a></li>
+                    <li><a href="#depoimentos">Depoimentos</a></li>
+                    <li><a href="#localizacao">Localização</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>A Autêntica Culinária Peruana Chega a Videira, SC</h1>
+            <p>Descubra os sabores vibrantes e a rica cultura do Peru em um ambiente aconchegante e único na sua cidade.</p>
+            <a href="#cardapio" class="btn">Ver Cardápio Completo</a>
+        </div>
+    </section>
+
+    <!-- Nossa História -->
+    <section id="historia" class="historia">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossa História</h2>
+            </div>
+            <div class="historia-content">
+                <div class="historia-texto">
+                    <p>Tudo começou com a paixão de Maria e Javier pela culinária peruana. Nascidos em Lima, eles trouxeram para Videira não apenas receitas familiares centenárias, mas também a calorosa hospitalidade peruana.</p>
+                    <p>Após anos sonhando em compartilhar os verdadeiros sabores do Peru com a comunidade de Videira, abrimos as portas do Sabores do Peru em 2020. Cada prato é preparado com ingredientes frescos e técnicas tradicionais, honrando nossa herança cultural.</p>
+                    <p>Nossa missão é proporcionar uma experiência gastronômica autêntica, onde cada cliente se siente transportado para as vibrantes ruas de Lima, Cusco ou Arequipa através dos sabores, aromas e atmosfera do nosso restaurante.</p>
+                </div>
+                <div class="historia-imagem">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Interior do restaurante">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cardápio -->
+    <section id="cardapio" class="cardapio">
+        <div class="container">
+            <div class="section-title">
+                <h2>Cardápio</h2>
+            </div>
+            <div class="categorias">
+                <button class="categoria-btn active">Ceviches Frescos</button>
+                <button class="categoria-btn">Arrozes Saborosos</button>
+                <button class="categoria-btn">Especialidades com Batata</button>
+                <button class="categoria-btn">Coquetéis Típicos</button>
+            </div>
+            <div class="pratos-grid">
+                <div class="prato-card">
+                    <div class="prato-imagem">
+                        <img src="https://images.pexels.com/photos/31495668/pexels-photo-31495668.jpeg" alt="Ceviche Clássico">
+                    </div>
+                    <div class="prato-info">
+                        <h3>Ceviche Clássico</h3>
+                        <p>Pescado marinado no limão, com cebola roxa, milho, batata-doce e cancha serrana.</p>
+                        <p class="prato-preco">R$ 42,90</p>
+                    </div>
+                </div>
+                <div class="prato-card">
+                    <div class="prato-imagem">
+                        <img src="\imgs\Lomo Saltado.png" alt="Lomo Saltado">
+                    </div>
+                    <div class="prato-info">
+                        <h3>Lomo Saltado</h3>
+                        <p>Clássico peruano com tiras de filé mignon, cebola, tomate, molho de soja e batata frita.</p>
+                        <p class="prato-preco">R$ 48,90</p>
+                    </div>
+                </div>
+                <div class="prato-card">
+                    <div class="prato-imagem">
+                        <img src=".\imgs\Aji de Gallina.png" alt="Aji de Gallina">
+                    </div>
+                    <div class="prato-info">
+                        <h3>Aji de Gallina</h3>
+                        <p>Frango desfiado em molho cremoso de nozes e aji amarillo, servido com arroz e batata.</p>
+                        <p class="prato-preco">R$ 38,90</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cardapio-cta">
+                <a href="#" class="btn">Ver Cardápio Completo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ambiente e Experiência -->
+    <section id="ambiente" class="ambiente">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ambiente e Experiência</h2>
+            </div>
+            <div class="galeria">
+                <div class="galeria-item">
+                    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Interior do restaurante">
+                </div>
+                <div class="galeria-item">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Pratos decorados">
+                </div>
+                <div class="galeria-item">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Chefs em ação">
+                </div>
+            </div>
+            <div class="ambiente-descricao">
+                <p>Em nosso restaurante, você será transportado para o Peru através de todos os sentidos. A decoração autêntica com artesanato peruano, a música tradicional ao vivo nas sextas-feiras e os aromas que saem de nossa cozinha criam uma experiência imersiva única em Videira.</p>
+                <p>Nossos garçons estão sempre prontos para explicar cada prato, sua origem e significado cultural, transformando cada refeição em uma viagem gastronômica pelo Peru.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section id="depoimentos" class="depoimentos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Depoimentos</h2>
+            </div>
+            <div class="depoimentos-grid">
+                <div class="depoimento-card">
+                    <div class="depoimento-texto">
+                        <p>Nunca provei nada igual! O ceviche estava perfeito e o atendimento foi impecável. Videira precisava de um lugar assim!</p>
+                    </div>
+                    <div class="depoimento-cliente">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Cliente">
+                        <div class="cliente-info">
+                            <h4>Ana Silva</h4>
+                            <p>Videira, SC</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="depoimento-card">
+                    <div class="depoimento-texto">
+                        <p>Como alguém que já visitou o Peru, posso afirmar que os sabores são autênticos! O Lomo Saltado é simplesmente perfeito.</p>
+                    </div>
+                    <div class="depoimento-cliente">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Cliente">
+                        <div class="cliente-info">
+                            <h4>Carlos Mendonça</h4>
+                            <p>Videira, SC</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="depoimento-card">
+                    <div class="depoimento-texto">
+                        <p>O ambiente é acolhedor e a comida deliciosa. Já fui várias vezes e sempre experimento algo novo. Recomendo!</p>
+                    </div>
+                    <div class="depoimento-cliente">
+                        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Cliente">
+                        <div class="cliente-info">
+                            <h4>Juliana Santos</h4>
+                            <p>Videira, SC</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Localização e Contato -->
+    <section id="localizacao" class="localizacao">
+        <div class="container">
+            <div class="section-title">
+                <h2>Localização e Contato</h2>
+            </div>
+            <div class="contato-grid">
+                <div class="contato-info">
+                    <h3>Venha nos visitar</h3>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <p>Rua das Palmeiras, 123</p>
+                            <p>Centro, Videira - SC</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <p>Terça a Quinta: 18h - 22h</p>
+                            <p>Sexta e Sábado: 18h - 23h</p>
+                            <p>Domingo: 12h - 21h</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <p>(49) 8408-8835</p>
+                            <p><a href="https://wa.me/554984088835" style="color: var(--vermelho-peru);">Enviar mensagem no WhatsApp</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mapa">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3550.569374746202!2d-51.884688924278!3d-27.007918876495026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94e19e53bdb9f0bd%3A0x5b4bc84b42c33ff1!2sVideira%2C%20SC!5e0!3m2!1spt-BR!2sbr!4v1686265730337!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mídias Sociais -->
+    <section class="midias-sociais">
+        <div class="container">
+            <div class="section-title">
+                <h2>Siga-nos nas Redes Sociais</h2>
+            </div>
+            <p>Fique por dentro das novidades, promoções e eventos especiais!</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://wa.me/554984088835"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">Sabores <span>do Peru</span></div>
+                    <p>Autêntica culinária peruana no coração de Videira, SC.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#historia">Nossa História</a></li>
+                        <li><a href="#cardapio">Cardápio</a></li>
+                        <li><a href="#ambiente">Ambiente</a></li>
+                        <li><a href="#localizacao">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Rua das Palmeiras, 123</li>
+                        <li><i class="fas fa-phone"></i> (49) 8408-8835</li>
+                        <li><i class="fas fa-envelope"></i> contato@saboresdoperu.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Sabores do Peru - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Script simples para a navegação suave
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Script para as categorias do cardápio
+        const categoriaBtns = document.querySelectorAll('.categoria-btn');
+        
+        categoriaBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoriaBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Aqui viria a lógica para filtrar os pratos por categoria
+                // Como é uma demonstração, não implementamos a funcionalidade completa
+            });
+        });
+    </script>
+</body>
+</html>
